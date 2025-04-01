@@ -32,7 +32,7 @@ jobs:
         pip install build
     - name: Read VERSION file and set as environment variable
       run: |
-       echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+       echo "VERSION=$(cat bikeshare_model/VERSION)" >> $GITHUB_ENV
     - name: Run training pipeline
       run: |
         python bikeshare_model/train_pipeline.py
