@@ -4,7 +4,7 @@ RUN mkdir /bike_sharing_api
 RUN mkdir /bike_sharing_api/app
 RUN mkdir /bike_sharing_api/app/schemas
 WORKDIR /bike_sharing_api
-COPY dist/bikeshare_model-0.0.1-py3-none-any.whl /bike_sharing_api
+COPY dist/*.whl /bike_sharing_api
 COPY bike_sharing_api/app/*.py /bike_sharing_api/app/
 COPY bike_sharing_api/app/schemas/*.py /bike_sharing_api/app/schemas/
 COPY bike_sharing_api/requirements.txt /bike_sharing_api/
