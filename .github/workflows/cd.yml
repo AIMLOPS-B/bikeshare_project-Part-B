@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Pull the  docker image which build on ci.ymal
         run: |
-          docker pull ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
+          sudo docker pull ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
 
       - name: Run bikesharing api image
         run: |
-          docker run -d -p 8001:8001 ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
+          sudo docker run -d -p 8001:8001 ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
           
   
       
