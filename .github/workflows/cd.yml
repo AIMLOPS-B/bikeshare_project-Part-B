@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
+      - name: Read VERSION file and set as environment variable
+        run: |
+         echo "VERSION=$(cat bikeshare_model/VERSION)" >> $GITHUB_ENV
+       
       - name: Pull the  docker image which build on ci.ymal
         run: |
           sudo docker pull ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
