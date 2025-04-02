@@ -57,4 +57,12 @@ jobs:
     - name: Logout from the dockerhub
       run: |
        docker logout
-      
+
+    - name: Save variable as artifact
+      run: echo $VERSION > version.txt
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: version
+        path: version.txt
