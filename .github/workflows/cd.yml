@@ -9,21 +9,21 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: version
+      #- name: Download artifact
+        #uses: actions/download-artifact@v4
+        #with:
+          #name: version
 
-      - name: Read version
-        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+      #- name: Read version
+        #run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
                
       - name: Pull the  docker image which build on ci.ymal
         run: |
-          sudo docker pull ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
+          sudo docker pull ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:0.0.1
 
       - name: Run bikesharing api image
         run: |
-          sudo docker run -d -p 8001:8001 ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:$VERSION
+          sudo docker run -d -p 8001:8001 ${{ secrets.DOCKERHUB_UNAME }}/bike_sharing_api:0.0.1
           
   
       
